@@ -27,7 +27,9 @@
         initialized       : false,
         timer             : false,
         timerDebounce     : false,
-        images            : []
+        images            : [],
+        offsetTop         : 0,
+        offsetBot         : 0
     };
 
     function Chocolat(element, settings) {
@@ -204,9 +206,9 @@
             }
 
             return {
-                'height' : height,
+                'height' : height-this.settings.offsetTop-this.settings.offsetBot,
                 'width'  : width,
-                'top'    : (holderHeight - height)/2,
+                'top'    : (holderHeight - height)/2+this.settings.offsetTop,
                 'left'   : (holderWidth - width)/2
             }
         },
